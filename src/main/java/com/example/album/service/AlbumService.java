@@ -41,6 +41,25 @@ public class AlbumService {
         albumRepository.updateMemberInAlbum(userUpdateRequest, memberId);
     }
 
+    @Transactional
+    public void likeCountUpdate(UUID boardId, Integer count) {
+        Album album = albumRepository.findById(boardId).get();
+        album.setLikeCount(album.getLikeCount() + count);
+    }
+
+    /*@Transactional
+    public void updateBoardMember(MemberUpdateRequest memberUpdateRequest, Long memberId) throws Exception {
+        if (memberUpdateRequest.getMemberImage() != null && memberUpdateRequest.getMemberName() !=null ){
+            albumRepository.updateAlbumMemberImageAndMemberName(memberUpdateRequest.getMemberName(), memberUpdateRequest.getMemberImage(), memberId);
+        } else if (memberUpdateRequest.getMemberImage()!=null && memberUpdateRequest.getMemberName() ==null) {
+            albumRepository.updateAlbumMemberImage(memberUpdateRequest.getMemberImage(),memberId);
+        } else if (memberUpdateRequest.getMemberImage()==null && memberUpdateRequest.getMemberName() != null) {
+            albumRepository.updateAlbumMemberName(memberUpdateRequest.getMemberName(), memberId);
+        } else {
+            throw new Exception("NULL REQUEST");
+        }
+    }*/
+
 
     //어떻게 구현할지 좀 생각
     @Transactional
