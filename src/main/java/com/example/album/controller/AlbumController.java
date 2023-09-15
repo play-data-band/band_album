@@ -19,14 +19,14 @@ public class AlbumController {
 
     @PostMapping("/communityid/{communityid}")
     public void saveAlbum(
-            @PathVariable("communityId") Long communityId,
+            @PathVariable("communityid") Long communityId,
             @RequestBody AlbumRequest albumRequest){
         albumService.saveAlbum(communityId,albumRequest);
     }
 
     @GetMapping("/communityid/{communityid}")
     public Page<AlbumResponse> getByCommunityId(
-            @PathVariable("communityId") Long communityId,
+            @PathVariable("communityid") Long communityId,
             @RequestParam(name = "page", required = false, defaultValue = "0") Integer page,
             @RequestParam(name = "size", required = false, defaultValue = "5") Integer size
             ){
@@ -41,7 +41,7 @@ public class AlbumController {
         albumService.albumUpdate(albumid,albumRequest);
     }
 
-    @PutMapping("/memberid/{memberId}")
+    @PutMapping("/memberid/{memberid}")
     public void memberUpdateInAlbum(
             @PathVariable("memberid") Long memberId,
             @RequestBody UserUpdateRequest UserUpdateRequest

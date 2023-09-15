@@ -8,7 +8,7 @@ spring:
       ddl-auto: update
     show-sql: true
   application:
-    name: communitymember-service
+    name: album-service
 
 
 server:
