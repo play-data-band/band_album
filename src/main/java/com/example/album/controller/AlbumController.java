@@ -49,6 +49,18 @@ public class AlbumController {
         albumService.memberUpdateInAlbum(memberId,UserUpdateRequest);
     }
 
+  /*  @PutMapping("/updatemember/{memberId}")
+    public void updateMemberBoard(@PathVariable("memberId")Long memberId,
+                                  @RequestBody MemberUpdateRequest memberUpdateRequest) throws Exception {
+        albumService.updateBoardMember(memberUpdateRequest, memberId);
+    }
+*/
+    @PutMapping("/likeCountUpdate/{albumId}")
+    public void updateLikeCount(@PathVariable("albumId") UUID albumId,
+                                @RequestBody Integer count) {
+        albumService.likeCountUpdate(albumId, count);
+    }
+
     //어떻게 구현할지 좀 생각
     @DeleteMapping("/{albumid}")
     public void albumDelete(@PathVariable("albumid") UUID albumid){
