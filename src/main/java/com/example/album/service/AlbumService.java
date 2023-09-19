@@ -35,9 +35,12 @@ public class AlbumService {
         album.setImgPath(albumRequest.getImgPath());
     }
 
+    @Transactional
     public void memberUpdateInAlbum(
             Long memberId, UserUpdateRequest userUpdateRequest
     ){
+        System.out.println(userUpdateRequest.getMemberName());
+        System.out.println(userUpdateRequest.getMemberImage());
         albumRepository.updateMemberInAlbum(userUpdateRequest, memberId);
     }
 
